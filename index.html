@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leandro Manuel Ocáriz Arrieta – CV</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────
+       VARIABLES CSS
+    ───────────────────────────────────── */
+    :root {
+      --color-primary:   #1a3a5c;
+      --color-accent:    #c8a84b;
+      --color-bg:        #f4f3ef;
+      --color-surface:   #ffffff;
+      --color-text:      #2c2c2c;
+      --color-muted:     #6b7280;
+      --color-border:    #ddd8ce;
+      --font-heading:    'Playfair Display', Georgia, serif;
+      --font-body:       'Source Sans 3', sans-serif;
+      --radius:          6px;
+      --shadow:          0 2px 12px rgba(26, 58, 92, 0.10);
+      --transition:      0.25s ease;
+    }
+
+    /* ─────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { color: var(--color-accent); text-decoration: underline; }
+
+    /* ─────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    section:nth-child(even) {
+      background-color: var(--color-surface);
+    }
+
+    /* ─────────────────────────────────────
+       SECCIÓN TITLES
+    ───────────────────────────────────── */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+
+    /* ─────────────────────────────────────
+       HEADER / ENCABEZADO
+    ───────────────────────────────────── */
+    .header {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #0f2540 100%);
+      color: #ffffff;
+      padding: 72px 0 60px;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .header-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--color-accent);
+      flex-shrink: 0;
+      background-color: #2a4a6c;
+    }
+
+    .header-info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .header-name {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .header-title {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--color-accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .header-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.9rem;
+      color: #c8d6e5;
+    }
+
+    .header-contact span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-contact a {
+      color: #c8d6e5;
+    }
+
+    .header-contact a:hover {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+
+    /* ─────────────────────────────────────
+       SOBRE MÍ
+    ───────────────────────────────────── */
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--color-text);
+      max-width: 720px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .about-text strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* ─────────────────────────────────────
+       EXPERIENCIA
+    ───────────────────────────────────── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .exp-item {
+      border-left: 3px solid var(--color-accent);
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 4px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      border: 2px solid var(--color-surface);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--color-primary);
+    }
+
+    .exp-period {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      background: #eee9de;
+      padding: 2px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 0.92rem;
+      color: var(--color-muted);
+      margin-bottom: 10px;
+    }
+
+    .exp-company a {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .exp-company a:hover { color: var(--color-accent); }
+
+    .exp-desc {
+      font-size: 0.97rem;
+      font-weight: 300;
+    }
+
+    .exp-desc ul {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .exp-desc li {
+      margin-bottom: 4px;
+    }
+
+    /* ─────────────────────────────────────
+       FORMACIÓN
+    ───────────────────────────────────── */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .edu-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+
+    .edu-degree {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+
+    .edu-institution {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .edu-status {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+
+    .edu-status.en-curso {
+      background: #e8f0fb;
+      color: #1a3a5c;
+    }
+
+    .edu-status.completo {
+      background: #eaf4ec;
+      color: #276b3a;
+    }
+
+    /* ─────────────────────────────────────
+       HABILIDADES
+    ───────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .skill-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .skill-card-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: #eef2f8;
+      color: var(--color-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #d5dff0;
+    }
+
+    /* ─────────────────────────────────────
+       CONTACTO
+    ───────────────────────────────────── */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info p {
+      font-size: 0.97rem;
+      color: var(--color-muted);
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .contact-detail span {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .contact-detail strong {
+      color: var(--color-primary);
+      min-width: 60px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 10px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      background: var(--color-bg);
+      color: var(--color-text);
+      transition: border-color var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-primary);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .btn-primary {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      align-self: flex-start;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent);
+      transform: translateY(-1px);
+    }
+
+    .form-msg {
+      display: none;
+      font-size: 0.9rem;
+      color: #276b3a;
+      font-weight: 600;
+      padding: 8px 0;
+    }
+
+    /* ─────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────── */
+    .footer {
+      background: var(--color-primary);
+      color: #a0b4c8;
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.85rem;
+    }
+
+    /* ─────────────────────────────────────
+       BOTÓN VOLVER ARRIBA (JavaScript)
+    ───────────────────────────────────── */
+    .btn-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      border: none;
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), transform var(--transition);
+      z-index: 999;
+    }
+
+    .btn-top:hover {
+      background: var(--color-primary);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    .btn-top.visible {
+      display: flex;
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────── */
+    @media (max-width: 640px) {
+      .header-name { font-size: 1.7rem; }
+      .contact-wrapper { grid-template-columns: 1fr; }
+      .header-inner { flex-direction: column; text-align: center; }
+      .header-contact { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       ENCABEZADO
+  ══════════════════════════════ -->
+  <header class="header" id="top">
+    <div class="container">
+      <div class="header-inner">
+        <img
+          class="header-photo"
+          src="https://ui-avatars.com/api/?name=Leandro+Oc%C3%A1riz&size=280&background=2a4a6c&color=c8a84b&bold=true&font-size=0.4"
+          alt="Foto de perfil de Leandro Ocáriz"
+        />
+        <div class="header-info">
+          <h1 class="header-name">Leandro Manuel Ocáriz Arrieta</h1>
+          <p class="header-title">Administrativo de Gestión y Supervisión · Sector Público</p>
+          <div class="header-contact">
+            <span>📍 Berisso, Buenos Aires</span>
+            <span>📞 221 360-0341</span>
+            <span>✉️ <a href="mailto:lean.bsso@gmail.com">lean.bsso@gmail.com</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════
+       SOBRE MÍ
+  ══════════════════════════════ -->
+  <section id="sobre-mi">
+    <div class="container">
+      <h2 class="section-title">Sobre mí</h2>
+      <p class="about-text">
+        Soy un profesional administrativo con <strong>más de 15 años de experiencia</strong> en
+        el sector público nacional, especializado en <strong>gestión de Recursos Humanos</strong>,
+        liquidaciones previsionales y administración académica dentro de la UTN.
+        Actualmente en <strong>Categoría 5 (Jefe de Supervisión/Subjefe)</strong>, combino
+        sólidas capacidades de liderazgo con el uso de herramientas digitales avanzadas y
+        normativa vigente (CCT, leyes previsionales). Además, me encuentro cursando dos
+        tecnicaturas universitarias, profundizando en programación y gestión de instituciones
+        de educación superior, con el objetivo de potenciar mi perfil hacia la mejora continua
+        de procesos y la transformación digital del sector público.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       EXPERIENCIA
+  ══════════════════════════════ -->
+  <section id="experiencia">
+    <div class="container">
+      <h2 class="section-title">Experiencia Laboral</h2>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Administrativo de Apoyo y Gestión</span>
+            <span class="exp-period">2024 – Actualidad</span>
+          </div>
+          <div class="exp-company">
+            Depto. de Ingeniería Industrial ·
+            <a href="https://www.frlp.utn.edu.ar" target="_blank" rel="noopener">UTN – FRLP</a>
+            · <a href="mailto:lean.bsso@gmail.com">Contacto</a>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Diseñé e implementé un sistema de seguimiento en Excel para gestión de equivalencias, reduciendo tiempos de respuesta y eliminando redundancias.</li>
+              <li>Coordinación administrativa de +100 docentes y control de asistencia para +500 alumnos.</li>
+              <li>Responsable del circuito de Carreras Académicas y Tesis, con carga en el Repositorio Institucional Abierto (RIA).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Responsable de Trámites Previsionales y RRHH</span>
+            <span class="exp-period">2015 – 2024</span>
+          </div>
+          <div class="exp-company">
+            Dirección de Recursos Humanos ·
+            <a href="https://www.frlp.utn.edu.ar" target="_blank" rel="noopener">UTN – FRLP</a>
+            · <a href="mailto:lean.bsso@gmail.com">Contacto</a>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Lideré el área de certificaciones de servicios y trámites jubilatorios, interactuando con ANSES e IPS.</li>
+              <li>Gestión integral de legajos, altas, bajas y licencias para cientos de agentes docentes y no docentes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Apoyo Técnico-Administrativo</span>
+            <span class="exp-period">2013 – 2015</span>
+          </div>
+          <div class="exp-company">
+            Depto. de Ingeniería en Sistemas de Información ·
+            <a href="https://www.frlp.utn.edu.ar" target="_blank" rel="noopener">UTN – FRLP</a>
+            · <a href="mailto:lean.bsso@gmail.com">Contacto</a>
+          </div>
+          <div class="exp-desc">
+            Soporte a dirección de carrera y bedelía. Gestión de actas, horarios y atención de alumnos de Ingeniería en Sistemas.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Operador de Digitalización</span>
+            <span class="exp-period">2008 – 2009</span>
+          </div>
+          <div class="exp-company">
+            <a href="https://www.anses.gob.ar" target="_blank" rel="noopener">ANSES</a>
+            · <a href="mailto:lean.bsso@gmail.com">Contacto</a>
+          </div>
+          <div class="exp-desc">
+            Procesamiento y digitalización de documentación sensible (fotomultas y expedientes), asegurando integridad y confidencialidad en sistemas nacionales.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FORMACIÓN ACADÉMICA
+  ══════════════════════════════ -->
+  <section id="formacion">
+    <div class="container">
+      <h2 class="section-title">Formación Académica</h2>
+      <div class="edu-list">
+
+        <div class="edu-item">
+          <p class="edu-degree">Tecnicatura Universitaria en Programación</p>
+          <p class="edu-institution">Universidad Tecnológica Nacional – FRLP</p>
+          <span class="edu-status en-curso">En curso · 2025 – Presente</span>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">Tecnicatura Universitaria en Administración y Gestión en Instituciones de Educación Superior</p>
+          <p class="edu-institution">Universidad Tecnológica Nacional – FRLP</p>
+          <span class="edu-status en-curso">En curso · 2025 – Presente</span>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">Bachiller – Modalidad Bienes y Servicios</p>
+          <p class="edu-institution">E.E.T. N° 2 "Emilio Rebuelto"</p>
+          <span class="edu-status completo">Completo</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       HABILIDADES
+  ══════════════════════════════ -->
+  <section id="habilidades">
+    <div class="container">
+      <h2 class="section-title">Habilidades</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <p class="skill-card-title">Sistemas de Gestión</p>
+          <div class="skill-tags">
+            <span class="skill-tag">SysAdmin</span>
+            <span class="skill-tag">SysAcad</span>
+            <span class="skill-tag">SIU Guaraní</span>
+            <span class="skill-tag">Moodle</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <p class="skill-card-title">Informática</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Excel Avanzado</span>
+            <span class="skill-tag">Tablas Dinámicas</span>
+            <span class="skill-tag">Automatización</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <p class="skill-card-title">Herramientas de IA</p>
+          <div class="skill-tags">
+            <span class="skill-tag">NotebookLM</span>
+            <span class="skill-tag">LLM</span>
+            <span class="skill-tag">Análisis Documental</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <p class="skill-card-title">Normativa e Investigación</p>
+          <div class="skill-tags">
+            <span class="skill-tag">InfoLeg</span>
+            <span class="skill-tag">Boletín Oficial</span>
+            <span class="skill-tag">CCT</span>
+            <span class="skill-tag">Leyes Previsionales</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <p class="skill-card-title">Competencias Blandas</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Liderazgo</span>
+            <span class="skill-tag">Confidencialidad</span>
+            <span class="skill-tag">Resolución de Problemas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       CONTACTO
+  ══════════════════════════════ -->
+  <section id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <div class="contact-wrapper">
+
+        <div class="contact-info">
+          <p>¿Querés ponerte en contacto? Completá el formulario o escribime directamente.</p>
+          <div class="contact-detail">
+            <span><strong>Email</strong> <a href="mailto:lean.bsso@gmail.com">lean.bsso@gmail.com</a></span>
+            <span><strong>Tel.</strong> 221 360-0341</span>
+            <span><strong>Zona</strong> Berisso, Buenos Aires</span>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribí tu mensaje aquí..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Enviar mensaje</button>
+          <p class="form-msg" id="form-msg">✅ ¡Mensaje enviado correctamente!</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer class="footer">
+    <p>© 2025 Leandro Manuel Ocáriz Arrieta · Berisso, Buenos Aires</p>
+  </footer>
+
+  <!-- ══════════════════════════════
+       BOTÓN VOLVER ARRIBA
+  ══════════════════════════════ -->
+  <button class="btn-top" id="btn-top" title="Volver arriba" aria-label="Volver al inicio">↑</button>
+
+  <!-- ══════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════ -->
+  <script>
+    // ── Botón "Volver Arriba" ──────────────────────────────
+    const btnTop = document.getElementById('btn-top');
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        btnTop.classList.add('visible');
+      } else {
+        btnTop.classList.remove('visible');
+      }
+    });
+
+    btnTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ── Formulario de contacto (simulado) ─────────────────
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const msg = document.getElementById('form-msg');
+      msg.style.display = 'block';
+      event.target.reset();
+      setTimeout(function () {
+        msg.style.display = 'none';
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
