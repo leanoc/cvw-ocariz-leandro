@@ -1,5 +1,48 @@
+/* ─── FUENTES LOCALES ─── */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/playfair-display-v40-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/source-sans-3-v19-latin-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/source-sans-3-v19-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/source-sans-3-v19-latin-600.woff2') format('woff2');
+}
+
 /* ─── VARIABLES CSS ─── */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
     :root {
       --color-primary:  #1a3a5c;
       --color-accent:   #c8a84b;
