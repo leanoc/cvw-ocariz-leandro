@@ -26,11 +26,11 @@
       line-height: 1.7;
       padding-top: var(--nav-height);
     }
-    a { color: var(--color-primary); text-decoration: none; }
-    a:hover { color: var(--color-accent); text-decoration: underline; }
+    .link { color: var(--color-primary); text-decoration: none; }
+    .link:hover { color: var(--color-accent); text-decoration: underline; }
     .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 56px 0; }
-    section:nth-child(even) { background-color: var(--color-surface); }
+    .section { padding: 56px 0; }
+    .section:nth-child(even) { background-color: var(--color-surface); }
 
     /* ─── NAV FIJO ─── */
     .navbar {
